@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignConnect - Interactive Sign Language</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            🤟 SignConnect
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#learn">Learn Signs</a>
+            <a href="#alphabet">Alphabet</a>
+            <a href="#interpreter">Interpreter</a>
+            <a href="#camera">Camera</a>
+            <a href="#practice">Practice</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO SIGNCONNECT
+            </p>
+
+            <h1>
+                Learn Sign Language
+                <br>
+                Interactively
+            </h1>
+
+            <p>
+                Learn common sign language gestures, understand their meanings
+                and practice your skills through an interactive experience.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#learn" class="btn primary">
+                    Explore Signs
+                </a>
+
+                <a href="#practice" class="btn secondary">
+                    Start Practice
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hand-icon">
+                🤟
+            </div>
+
+            <h3>
+                Sign Language
+            </h3>
+
+            <p>
+                Communication beyond words.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARN SIGNS SECTION -->
+    <section id="learn" class="section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                LEARN
+            </p>
+
+            <h2>
+                Common Sign Language
+            </h2>
+
+            <p>
+                Explore some commonly used signs and understand their meanings.
+            </p>
+
+        </div>
+
+
+        <div class="sign-grid">
+
+            <div class="sign-card">
+                <div class="sign-emoji">👋</div>
+                <h3>Hello</h3>
+                <p>A friendly greeting used when meeting someone.</p>
+            </div>
+
+
+            <div class="sign-card">
+                <div class="sign-emoji">🙏</div>
+                <h3>Thank You</h3>
+                <p>Used to express gratitude and appreciation.</p>
+            </div>
+
+
+            <div class="sign-card">
+                <div class="sign-emoji">👍</div>
+                <h3>Yes</h3>
+                <p>A simple gesture used to show agreement.</p>
+            </div>
+
+
+            <div class="sign-card">
+                <div class="sign-emoji">👎</div>
+                <h3>No</h3>
+                <p>Used to show disagreement or rejection.</p>
+            </div>
+
+
+            <div class="sign-card">
+                <div class="sign-emoji">❤️</div>
+                <h3>Love</h3>
+                <p>A gesture commonly associated with affection.</p>
+            </div>
+
+
+            <div class="sign-card">
+                <div class="sign-emoji">🤝</div>
+                <h3>Help</h3>
+                <p>Used when asking for or offering assistance.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ALPHABET SECTION -->
+    <section id="alphabet" class="section alphabet-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                ALPHABET
+            </p>
+
+            <h2>
+                Learn the Sign Language Alphabet
+            </h2>
+
+            <p>
+                Learn the hand signs used to represent letters from A to Z.
+            </p>
+
+        </div>
+
+
+        <div class="alphabet-container">
+
+            <img
+                src="{{ url_for('static', filename='asl_alphabet.jpeg') }}"
+                alt="Sign Language Alphabet A to Z"
+                class="alphabet-image"
+            >
+
+
+            <div class="alphabet-info">
+
+                <h3>
+                    A–Z Sign Language
+                </h3>
+
+                <p>
+                    This alphabet chart shows hand signs representing
+                    the letters A to Z. It can be used to practice
+                    fingerspelling and learn basic sign language.
+                </p>
+
+                <p class="note">
+                    Practice each letter slowly and try to remember
+                    the hand position.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TEXT INTERPRETER SECTION -->
+    <section id="interpreter" class="section interpreter-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                INTERPRETER
+            </p>
+
+            <h2>
+                Sign Language Interpreter
+            </h2>
+
+            <p>
+                Convert simple text into a sign-language learning prompt.
+            </p>
+
+        </div>
+
+
+        <div class="interpreter-box">
+
+            <label for="textInput">
+                Enter a word or sentence
+            </label>
+
+            <textarea
+                id="textInput"
+                placeholder="Type something here..."
+            ></textarea>
+
+            <button
+                class="btn primary"
+                onclick="interpretText()">
+                Interpret
+            </button>
+
+            <div id="interpretResult" class="interpret-result">
+                Your interpretation will appear here.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMERA INTERPRETER SECTION -->
+    <section id="camera" class="section camera-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                CAMERA INTERPRETER
+            </p>
+
+            <h2>
+                Practice Using Your Camera
+            </h2>
+
+            <p>
+                Use your webcam to practice sign language gestures.
+            </p>
+
+        </div>
+
+
+        <div class="camera-box">
+
+            <div class="camera-screen">
+
+                <video
+                    id="cameraVideo"
+                    autoplay
+                    playsinline>
+                </video>
+
+                <div id="cameraMessage" class="camera-message">
+                    Camera is currently off.
+                </div>
+
+            </div>
+
+
+            <div class="camera-buttons">
+
+                <button
+                    class="btn primary"
+                    onclick="startCamera()">
+                    📷 Start Camera
+                </button>
+
+                <button
+                    class="btn secondary"
+                    onclick="stopCamera()">
+                    ⏹ Stop Camera
+                </button>
+
+            </div>
+
+
+            <div class="camera-info">
+
+                <h3>
+                    Camera Practice
+                </h3>
+
+                <p>
+                    Position your hand clearly in front of the camera
+                    and practice the signs shown in the Learn Signs
+                    and Alphabet sections.
+                </p>
+
+                <p class="camera-note">
+                    Note: The current version provides webcam practice.
+                    Automatic gesture recognition can be added as a
+                    future feature.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRACTICE SECTION -->
+    <section id="practice" class="section practice-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                PRACTICE
+            </p>
+
+            <h2>
+                Test Your Knowledge
+            </h2>
+
+            <p>
+                Choose the correct answer and practice what you have learned.
+            </p>
+
+        </div>
+
+
+        <div class="quiz-box">
+
+            <h3 id="question">
+                Which gesture is commonly used to show agreement?
+            </h3>
+
+
+            <div class="quiz-options">
+
+                <button onclick="checkAnswer(this, 'wrong')">
+                    👋 Hello
+                </button>
+
+                <button onclick="checkAnswer(this, 'correct')">
+                    👍 Yes
+                </button>
+
+                <button onclick="checkAnswer(this, 'wrong')">
+                    👎 No
+                </button>
+
+                <button onclick="checkAnswer(this, 'wrong')">
+                    ❤️ Love
+                </button>
+
+            </div>
+
+
+            <p id="quizResult"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            🤟 SignConnect
+        </div>
+
+        <p>
+            Interactive Sign Language Learning & Interpreter Project
+        </p>
+
+        <p class="copyright">
+            © 2026 SignConnect. All rights reserved.
+        </p>
+
+    </footer>
+
+
+       <footer>
+        <p>© 2026 SignConnect | Interactive Sign Language Interpreter</p>
+    </footer>
+
+    <!-- MediaPipe Hand Detection -->
+    <!-- Your JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+</body>
+
+</html>
+```
