@@ -1,0 +1,724 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #FCE8DC;
+    color: #5C4540;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: #FAD6C5;
+
+    padding: 18px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(120, 75, 60, 0.10);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #704F47;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #704F47;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #C47F68;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1200px;
+    min-height: 620px;
+
+    margin: auto;
+    padding: 80px 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #C47F68;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.15;
+    color: #704F47;
+    margin-bottom: 25px;
+}
+
+.hero-content > p:not(.small-title) {
+    font-size: 18px;
+    color: #795F57;
+    max-width: 580px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+
+    padding: 13px 25px;
+    border-radius: 25px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary {
+    background: #EFAF91;
+    color: #FFF7F2;
+}
+
+.primary:hover {
+    background: #DD9879;
+}
+
+.secondary {
+    background: #E8D8E8;
+    color: #725B70;
+}
+
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card {
+    width: 330px;
+    height: 330px;
+
+    flex-shrink: 0;
+
+    background: #F7D8C8;
+    border-radius: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 15px 35px rgba(120, 75, 60, 0.12);
+}
+
+.hand-icon {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+.hero-card h3 {
+    color: #805C51;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.hero-card p {
+    color: #795F57;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 85px 50px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    color: #704F47;
+    font-size: 36px;
+    margin: 8px 0 10px;
+}
+
+.section-heading > p:not(.small-title) {
+    color: #795F57;
+}
+
+
+/* =========================
+   SIGN CARDS
+========================= */
+
+.sign-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.sign-card {
+    background: #FFF0E7;
+
+    padding: 30px 22px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 22px rgba(120, 75, 60, 0.08);
+
+    transition: 0.3s;
+}
+
+.sign-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(120, 75, 60, 0.14);
+}
+
+.sign-emoji {
+    font-size: 58px;
+    margin-bottom: 15px;
+}
+
+.sign-card h3 {
+    color: #9A6859;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.sign-card p {
+    color: #806861;
+}
+
+
+/* =========================
+   ALPHABET
+========================= */
+
+.alphabet-section {
+    background: #F7D8C8;
+
+    border-radius: 35px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.alphabet-container {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 45px;
+
+    background: #FFF0E7;
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    box-shadow: 0 10px 25px rgba(120, 75, 60, 0.08);
+}
+
+.alphabet-image {
+    width: 55%;
+    max-width: 600px;
+
+    display: block;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 20px rgba(120, 75, 60, 0.15);
+}
+
+.alphabet-info {
+    max-width: 400px;
+}
+
+.alphabet-info h3 {
+    color: #9A6859;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.alphabet-info p {
+    color: #806861;
+    margin-bottom: 15px;
+}
+
+.alphabet-info .note {
+    background: #E8D8E8;
+
+    padding: 15px;
+    border-radius: 15px;
+
+    color: #725B70;
+}
+
+
+/* =========================
+   TEXT INTERPRETER
+========================= */
+
+.interpreter-section {
+    background: #F9DCCF;
+
+    border-radius: 35px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.interpreter-box {
+    max-width: 800px;
+
+    margin: auto;
+
+    background: #FFF0E7;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 12px 30px rgba(120, 75, 60, 0.10);
+}
+
+.interpreter-box label {
+    display: block;
+
+    color: #805C51;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.interpreter-box textarea {
+    width: 100%;
+
+    min-height: 130px;
+
+    resize: vertical;
+
+    border: 2px solid #F1C2AE;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    background: #FCE8DC;
+    color: #5C4540;
+
+    outline: none;
+
+    margin-bottom: 20px;
+}
+
+.interpreter-box textarea:focus {
+    border-color: #EFAF91;
+}
+
+.interpret-result {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #E8D8E8;
+
+    border-radius: 18px;
+
+    color: #725B70;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+/* =========================
+   CAMERA INTERPRETER
+========================= */
+
+.camera-section {
+    background: #F7D8C8;
+
+    border-radius: 35px;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.camera-box {
+    max-width: 850px;
+
+    margin: auto;
+
+    background: #FFF0E7;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 12px 30px rgba(120, 75, 60, 0.10);
+
+    text-align: center;
+}
+
+.camera-screen {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 400px;
+
+    background: #E8D8E8;
+
+    border: 3px solid #F1C2AE;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+}
+
+.camera-screen video {
+    width: 100%;
+    max-height: 500px;
+
+    display: none;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+}
+
+.camera-message {
+    color: #725B70;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    padding: 20px;
+}
+
+.camera-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+}
+
+.camera-info {
+    background: #FCE8DC;
+
+    padding: 22px;
+
+    border-radius: 20px;
+}
+
+.camera-info h3 {
+    color: #9A6859;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.camera-info p {
+    color: #806861;
+
+    margin-bottom: 10px;
+}
+
+.camera-note {
+    font-size: 14px;
+
+    color: #725B70 !important;
+
+    background: #E8D8E8;
+
+    padding: 12px;
+
+    border-radius: 12px;
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice-section {
+    padding-bottom: 100px;
+}
+
+.quiz-box {
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: #F7D8C8;
+
+    border-radius: 30px;
+
+    box-shadow: 0 10px 25px rgba(120, 75, 60, 0.08);
+}
+
+.quiz-box h3 {
+    color: #704F47;
+
+    margin-bottom: 25px;
+
+    font-size: 21px;
+}
+
+.quiz-options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.quiz-options button {
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #FFF0E7;
+
+    color: #805C51;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.quiz-options button:hover {
+    background: #F1C2AE;
+
+    transform: translateY(-3px);
+}
+
+#quizResult {
+    margin-top: 20px;
+
+    font-weight: bold;
+
+    min-height: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #FAD6C5;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #795F57;
+}
+
+.footer-logo {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #704F47;
+
+    margin-bottom: 5px;
+}
+
+.copyright {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: #806861;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 25px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-content {
+        max-width: 700px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .sign-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .alphabet-container {
+        flex-direction: column;
+    }
+
+    .alphabet-image {
+        width: 100%;
+    }
+
+    .alphabet-info {
+        max-width: 700px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-card {
+        width: 280px;
+        height: 280px;
+    }
+
+    .section {
+        padding: 65px 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .sign-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-options {
+        grid-template-columns: 1fr;
+    }
+
+    .interpreter-box {
+        padding: 25px;
+    }
+
+    .camera-box {
+        padding: 20px;
+    }
+
+    .camera-screen {
+        min-height: 280px;
+    }
+
+}
+```
