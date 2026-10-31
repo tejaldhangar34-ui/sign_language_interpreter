@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignConnect - Interactive Sign Language</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">🤟 SignConnect</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#learn">Learn Signs</a>
+        <a href="#alphabet">Alphabet</a>
+        <a href="#interpreter">Interpreter</a>
+        <a href="#camera">Camera</a>
+        <a href="#practice">Practice</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="small-title">WELCOME TO SIGNCONNECT</p>
+        <h1>Learn Sign Language<br>Interactively</h1>
+        <p>
+            Learn American Sign Language fingerspelling,
+            practice hand gestures and explore interactive
+            sign-language recognition.
+        </p>
+        <div class="buttons">
+            <a href="#learn" class="btn primary">Explore Signs</a>
+            <a href="#practice" class="btn secondary">Start Practice</a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="hand-icon">🤟</div>
+        <h3>Sign Language</h3>
+        <p>Communication beyond words.</p>
+    </div>
+</section>
+
+<!-- LEARN SIGNS -->
+<section id="learn" class="section">
+    <div class="section-heading">
+        <p class="small-title">LEARN</p>
+        <h2>Common Sign Language</h2>
+        <p>Explore common gestures and their meanings.</p>
+    </div>
+
+    <div class="sign-grid">
+        <div class="sign-card">
+            <div class="sign-emoji">👋</div>
+            <h3>Hello</h3>
+            <p>A friendly greeting.</p>
+        </div>
+
+        <div class="sign-card">
+            <div class="sign-emoji">🙏</div>
+            <h3>Thank You</h3>
+            <p>Used to express gratitude.</p>
+        </div>
+
+        <div class="sign-card">
+            <div class="sign-emoji">👍</div>
+            <h3>Yes</h3>
+            <p>A gesture of agreement.</p>
+        </div>
+
+        <div class="sign-card">
+            <div class="sign-emoji">👎</div>
+            <h3>No</h3>
+            <p>A gesture of disagreement.</p>
+        </div>
+
+        <div class="sign-card">
+            <div class="sign-emoji">❤️</div>
+            <h3>Love</h3>
+            <p>A gesture associated with affection.</p>
+        </div>
+
+        <div class="sign-card">
+            <div class="sign-emoji">🤝</div>
+            <h3>Help</h3>
+            <p>Used when asking for assistance.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ALPHABET -->
+<section id="alphabet" class="section alphabet-section">
+    <div class="section-heading">
+        <p class="small-title">ALPHABET</p>
+        <h2>Learn the ASL Alphabet</h2>
+        <p>Learn the hand signs representing letters A to Z.</p>
+    </div>
+
+    <div class="alphabet-container">
+        <img
+            src="{{ url_for('static', filename='asl_alphabet.jpeg') }}"
+            alt="American Sign Language alphabet"
+            class="alphabet-image"
+        >
+
+        <div class="alphabet-info">
+            <h3>A–Z Sign Language</h3>
+            <p>
+                This chart shows ASL handshapes used for
+                fingerspelling.
+            </p>
+            <p class="note">
+                J and Z involve movement, not only a static handshape.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- TEXT INTERPRETER -->
+<section id="interpreter" class="section interpreter-section">
+    <div class="section-heading">
+        <p class="small-title">INTERPRETER</p>
+        <h2>Text to Sign Language</h2>
+        <p>Enter text to display the ASL alphabet sequence.</p>
+    </div>
+
+    <div class="interpreter-box">
+        <label for="textInput">Enter a word or sentence</label>
+
+        <textarea
+            id="textInput"
+            placeholder="Example: HELLO"
+        ></textarea>
+
+        <button
+            type="button"
+            class="btn primary"
+            id="interpretButton">
+            Interpret
+        </button>
+
+        <div
+            id="interpretResult"
+            class="interpret-result"
+            aria-live="polite">
+            Your interpretation will appear here.
+        </div>
+    </div>
+</section>
+
+<!-- CAMERA INTERPRETER -->
+<section id="camera" class="section camera-section">
+
+    <div class="section-heading">
+        <p class="small-title">CAMERA INTERPRETER</p>
+        <h2>ASL Hand Recognition</h2>
+        <p>Show your hand clearly in front of the webcam.</p>
+    </div>
+
+    <div class="camera-box">
+
+        <div class="camera-screen">
+
+            <video
+                id="cameraVideo"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <div id="cameraMessage" class="camera-message">
+                Camera is currently off.
+            </div>
+
+        </div>
+
+        <div class="camera-buttons">
+            <button
+                type="button"
+                class="btn primary"
+                id="startCamera">
+                📷 Start Camera
+            </button>
+
+            <button
+                type="button"
+                class="btn secondary"
+                id="stopCamera">
+                ⏹ Stop Camera
+            </button>
+        </div>
+
+        <!-- ALWAYS VISIBLE RECOGNITION OUTPUT -->
+        <div id="gestureResult" class="gesture-result" aria-live="polite">
+            Waiting for camera recognition.
+        </div>
+
+        <div class="camera-info">
+            <h3>Camera Interpretation</h3>
+            <p>
+                The system detects your hand and identifies supported
+                gestures. Train ASL alphabet labels below to recognize
+                the letters using your own examples.
+            </p>
+        </div>
+
+        <!-- TRAINING INTERFACE -->
+        <div class="training-panel">
+
+            <h3>Train ASL Alphabet Recognition</h3>
+
+            <p>
+                Select a label, show its correct ASL handshape,
+                and collect training examples.
+            </p>
+
+            <label for="trainingLabel">Choose a letter or word</label>
+
+            <select id="trainingLabel"></select>
+
+            <button
+                type="button"
+                class="btn primary"
+                id="captureSamples">
+                Collect 30 Samples
+            </button>
+
+            <button
+                type="button"
+                class="btn secondary"
+                id="clearTraining">
+                Clear Training Data
+            </button>
+
+            <p id="trainingStatus" aria-live="polite">
+                No training samples collected.
+            </p>
+
+            <div id="trainingSummary"></div>
+
+            <p class="camera-note">
+                Collect examples separately for every label.
+                J and Z require motion recognition and are not
+                supported by this static-handshape classifier.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice" class="section practice-section">
+    <div class="section-heading">
+        <p class="small-title">PRACTICE</p>
+        <h2>Test Your Knowledge</h2>
+        <p>Choose the correct answer.</p>
+    </div>
+
+    <div class="quiz-box">
+        <h3 id="question">
+            Which gesture is commonly used to show agreement?
+        </h3>
+
+        <div class="quiz-options">
+            <button type="button" onclick="checkAnswer(this, 'wrong')">
+                👋 Hello
+            </button>
+
+            <button type="button" onclick="checkAnswer(this, 'correct')">
+                👍 Yes
+            </button>
+
+            <button type="button" onclick="checkAnswer(this, 'wrong')">
+                👎 No
+            </button>
+
+            <button type="button" onclick="checkAnswer(this, 'wrong')">
+                ❤️ Love
+            </button>
+        </div>
+
+        <p id="quizResult"></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">🤟 SignConnect</div>
+    <p>Interactive Sign Language Learning & Interpreter Project</p>
+    <p class="copyright">© 2026 SignConnect</p>
+</footer>
+
+<!-- IMPORTANT: script.js is a JavaScript module -->
+<script
+    type="module"
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+</html>
